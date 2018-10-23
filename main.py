@@ -2,6 +2,7 @@ import discord
 import asyncio
 import random
 import datetime
+import os
 
 client = discord.Client()
 
