@@ -17,10 +17,13 @@ async def on_ready():
 @client.event
 async def on_ready():
     while True:
-        await client.change_presence(game=discord.Game(name="MINECRAFT"))
+        await client.change_presence(game=discord.Game(name="e cagando!"))
         await asyncio.sleep(5)
         # Ele vai esperar 60 segundos para mudar para o proximo status
-        await client.change_presence(game=discord.Game(name="BRAAINS.IO"))
+        await client.change_presence(game=discord.Game(name="e matando meu pai/Nitroo!"))
+        await asyncio.sleep(5)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="fui desenvolvido pelo Nitroo#4025!"))
         await asyncio.sleep(5)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
 
