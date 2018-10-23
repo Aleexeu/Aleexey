@@ -31,10 +31,10 @@ async def on_ready():
 async def on_message(message):
     if message.content.lower().startswith('/test'):
         await client.send_message(message.channel, "Olá Mundo, estou vivo!")
-    if message.content.lower().startswith('d!vote'):
+    if message.content.lower().startswith('/vote'):
         vote = message.content[6:].strip()
         votee = await client.send_message(message.channel,
-                                          message.author.mention + " **Iniciou uma votaçãơ**\n\n➜``" + vote + "``")
+                                          message.author.mention + " **Iniciou uma votaçãơ**@here\n\n➜" + vote + "")
         await client.delete_message(message)
         await client.add_reaction(votee, '👍')
         await client.add_reaction(votee, '👎')
