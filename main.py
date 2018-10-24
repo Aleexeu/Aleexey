@@ -58,26 +58,17 @@ async def on_message(message):
             icon_url=message.author.avatar_url)
 
         await client.send_message(message.channel, embed=embedbot)
-    if message.content.lower().startswith('/vote'):
-        if message.author.server_permissions.administrator:
-        vote = message.content[6:].strip()
-        votee = await client.send_message(message.channel,
-                                          message.author.mention + " **Iniciou uma votaçãơ**@here\n\n➜" + vote + "")
-        await client.delete_message(message)
-        await client.add_reaction(votee, '👍')
-        await client.add_reaction(votee, '👎')
-        await client.send_message(message.channel, "Sem permissão!")
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
             try:
-                msg = str(message.content).replace("/say ", "")
+                msg = str(message.content).replace("!say ", "")
                 if len(msg) >= 1:
                     await client.delete_message(message)
                 else:
                     await client.send_message(message.channel, "Digite algo!")
             # se o bot nao puder apagar a msg do seu comando
             except discord.Forbidden:
-                msg = str(message.content).replace("/say ", "")
+                msg = str(message.content).replace("!say ", "")
                 await client.send_message(message.channel, msg)
         else:
             await client.send_message(message.channel, "Sem permissão!")
