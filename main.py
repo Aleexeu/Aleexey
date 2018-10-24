@@ -59,6 +59,7 @@ async def on_message(message):
 
         await client.send_message(message.channel, embed=embedbot)
     if message.content.lower().startswith('/vote'):
+        if message.author.server_permissions.administrator:
         vote = message.content[6:].strip()
         votee = await client.send_message(message.channel,
                                           message.author.mention + " **Iniciou uma votaçãơ**@here\n\n➜" + vote + "")
