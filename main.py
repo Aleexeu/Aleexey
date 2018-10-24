@@ -36,7 +36,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-        if message.content.lower().startswith("/serverinfo"):
+    if message.content.lower().startswith('/help'):
+        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).".format(message.author.mention))
+    if message.content.lower().startswith("/serverinfo"):
         horario = datetime.datetime.now().strftime("%H:%M:%S")
         embed = discord.Embed(title="\n",
                               description="Abaixo está as informaçoes principais do servidor!")
@@ -68,8 +70,6 @@ async def on_message(message):
         ping_embed = discord.Embed(title="🏓 Pong!", color=0x000000,
                                    description='Meu tempo de resposta é `{}ms`!'.format(round((t2 - t1) * 1000)))
         await client.send_message(message.channel, f"{message.author.mention}", embed=ping_embed)
-    if message.content.lower().startswith('/help'):
-        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).".format(message.author.mention))
     if message.content.lower().startswith('/abraçar'):
         try:
             hugimg = ['http://media1.tenor.com/images/e58eb2794ff1a12315665c28d5bc3f5e/tenor.gif?itemid=10195705',
