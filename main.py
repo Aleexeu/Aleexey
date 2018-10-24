@@ -36,6 +36,11 @@ async def on_ready():
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
 
 @client.event
+async def on_member_join(member):
+    cargo = discord.utils.get(member.server.roles, name="Membro")
+    await client.add_roles(member, cargo)
+        
+@client.event
 async def on_message(message):
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).".format(message.author.mention))
