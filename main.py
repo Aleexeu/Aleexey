@@ -65,6 +65,7 @@ async def on_message(message):
         await client.delete_message(message)
         await client.add_reaction(votee, '👍')
         await client.add_reaction(votee, '👎')
+        await client.send_message(message.channel, "Sem permissão!")
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
             try:
