@@ -157,7 +157,7 @@ async def on_message(message):
         except discord.Forbidden:
             await client.send_message(message.channel,
                                       "Não posso banir o usuário, o cargo dele está acima de mim ou não tenho permissão para banir membros!")
-        canal = client.get_channel('503616605088120853')
+        canal = client.get_channel('504732378846199820')
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
