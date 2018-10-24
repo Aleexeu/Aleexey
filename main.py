@@ -58,7 +58,7 @@ async def on_message(message):
             icon_url=message.author.avatar_url)
 
         await client.send_message(message.channel, embed=embedbot)
-     if message.content.startswith("/servidores"):
+     if message.content.startswith('/servidores'):
         servidores = '\n'.join([s.name for s in client.servers])
         embe = discord.Embed(title="Estou online em " + str(len(client.servers)) + " servidores com " + str(
             len(set(client.get_all_members()))) + " membros!",
