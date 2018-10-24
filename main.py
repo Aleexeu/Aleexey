@@ -3,6 +3,7 @@ import asyncio
 import random
 import datetime
 import os
+import time
 
 client = discord.Client()
 
@@ -36,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.lower().startswith('/help'):
-        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).".format(message.author.mention))
+        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).".format(message.author.mention))
     if message.content.lower().startswith('/abraçar'):
         try:
             hugimg = ['http://media1.tenor.com/images/e58eb2794ff1a12315665c28d5bc3f5e/tenor.gif?itemid=10195705',
@@ -56,6 +57,14 @@ async def on_message(message):
             await client.send_message(message.channel, embed=hugemb)
         except IndexError:
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
+     if message.content.lower().startswith('/ping'):
+        channel = message.channel
+        t1 = time.perf_counter()
+        await client.send_typing(channel)
+        t2 = time.perf_counter()
+        ping_embed = discord.Embed(title="🏓 Pong!", color=0x000000,
+                                   description='Meu tempo de resposta é `{}ms`!'.format(round((t2 - t1) * 1000)))
+        await client.send_message(message.channel, f"{message.author.mention}", embed=ping_embed)
     if message.content.lower().startswith('/botinfo'):
         embedbot = discord.Embed(
             title='**🤖 Informações do Bot**',
