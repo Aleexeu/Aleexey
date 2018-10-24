@@ -78,7 +78,6 @@ async def on_message(message):
             await client.send_message(message.channel, embed=hugemb)
         except IndexError:
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
-
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
             try:
