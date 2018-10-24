@@ -26,11 +26,17 @@ async def on_ready():
         await client.change_presence(game=discord.Game(name="fui desenvolvido pelo Nitroo#4025!"))
         await asyncio.sleep(5)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="e olhando meu criador me dando comandos!"))
+        await asyncio.sleep(5)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="ajuda ? eu posso te ajudar /help <-"))
+        await asyncio.sleep(5)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
 
 @client.event
 async def on_message(message):
-    if message.content.lower().startswith('/test'):
-        await client.send_message(message.channel, "Olá Mundo, estou vivo!")
+    if message.content.lower().startswith('/help'):
+        await client.send_message(message.channel, "Meus comandos abaixo,\n \n \nAdmins:\n/ban [para banir o player],\n/vote [para fazer uma votação]\n \n \nMembros:\n/botinfo [para ver minhas configurações.")
         if message.content.lower().startswith('/botinfo'):
         await client.delete_message(message)
         embedbot = discord.Embed(
