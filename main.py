@@ -61,7 +61,7 @@ async def on_message(message):
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
             try:
-                msg = str(message.content).replace("!say ", "")
+                msg = str(message.content).replace("/say ", "")
                 if len(msg) >= 1:
                     embed = discord.Embed(description=msg, color=0xFF8000)
                     await client.send_message(message.channel, embed=embed)
@@ -70,7 +70,7 @@ async def on_message(message):
                     await client.send_message(message.channel, "Digite algo!")
            # se o bot nao puder apagar a msg do seu comando
             except discord.Forbidden:
-                msg = str(message.content).replace("!say ", "")
+                msg = str(message.content).replace("/say ", "")
                 await client.send_message(message.channel, msg)
         else:
             await client.send_message(message.channel, "Sem permissão!")
