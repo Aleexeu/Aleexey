@@ -31,6 +31,28 @@ async def on_ready():
 async def on_message(message):
     if message.content.lower().startswith('/test'):
         await client.send_message(message.channel, "Olá Mundo, estou vivo!")
+        if message.content.lower().startswith('/botinfo'):
+        await client.delete_message(message)
+        embedbot = discord.Embed(
+            title='**🤖 Informações do Bot**',
+            color=0x00a3cc,
+            description='\n'
+        )
+        embedbot.set_thumbnail(url="https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fabrilsuperinteressante.files.wordpress.com%2F2016%2F03%2Fcachorro.png&imgrefurl=https%3A%2F%2Fsuper.abril.com.br%2Fideias%2Fpare-de-tratar-seu-cachorro-como-se-ele-fosse-um-lobo%2F&docid=6cnBCiMF7Dnm_M&tbnid=TQzry5QTmwCo1M%3A&vet=10ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE..i&w=1024&h=682&hl=pt-BR&gl=br&bih=657&biw=1024&q=cachorro&ved=0ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE&iact=mrc&uact=8")  # Aqui você coloca a url da foto do seu bot!
+        embedbot.add_field(name='`💮 | Nome`', value=client.user.name, inline=True)
+        embedbot.add_field(name='`◼ | Id bot`', value=client.user.id, inline=True)
+        embedbot.add_field(name='💠 | Criado em', value=client.user.created_at.strftime("%d %b %Y %H:%M"))
+        embedbot.add_field(name='📛 | Tag', value=client.user)
+        embedbot.add_field(name='‍💻 | Servidores', value=len(client.servers))
+        embedbot.add_field(name='👥 | Usuarios', value=len(list(client.get_all_members())))
+        embedbot.add_field(name='‍⚙️ | Programador', value="`Nitroo#4025`")  # Aqui você coloca seu nome/discord
+        embedbot.add_field(name='🐍 Python  | Version',
+                           value="`3.6.6`")  # Aqui você coloca a versão do python que você está utilizando!
+        embedbot.set_footer(
+            text="Comando usado por {} as {} Hrs".format(message.author, datetime.datetime.now().hour),
+            icon_url=message.author.avatar_url)
+
+        await client.send_message(message.channel, embed=embedbot)
     if message.content.lower().startswith('/vote'):
         vote = message.content[6:].strip()
         votee = await client.send_message(message.channel,
