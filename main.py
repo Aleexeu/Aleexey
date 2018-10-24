@@ -36,7 +36,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.lower().startswith('/help'):
-        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/servidores (para ver em quantos servidores estou.).".format(message.author.mention))
+        await client.send_message(message.channel, "{},\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!".format(message.author.mention))
     if message.content.lower().startswith('/botinfo'):
         embedbot = discord.Embed(
             title='**🤖 Informações do Bot**',
@@ -58,12 +58,6 @@ async def on_message(message):
             icon_url=message.author.avatar_url)
 
         await client.send_message(message.channel, embed=embedbot)
-     if message.content.lower().startswith('/servidores'):
-        servidores = '\n'.join([s.name for s in client.servers])
-        embe = discord.Embed(title="Estou online em " + str(len(client.servers)) + " servidores com " + str(
-            len(set(client.get_all_members()))) + " membros!",
-                             color=0x00a3cc,
-                             description=servidores)
         await client.send_message(message.channel, embed=embe)
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
