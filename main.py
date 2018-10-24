@@ -4,6 +4,7 @@ import random
 import datetime
 import os
 import time
+from discord.ext import commands
 
 client = discord.Client()
 
