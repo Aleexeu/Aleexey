@@ -161,14 +161,6 @@ async def on_message(message):
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
         
-players = {}
-COR = 0xF7FE2E
-
-@client.event
-async def on_ready():
-    print(client.user.name)
-    print("===================")
-
 @client.event
 async def on_message(message):
     if message.content.startswith('/entrar'):
