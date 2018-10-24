@@ -36,7 +36,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.lower().startswith('/help'):
-        await client.send_message(message.channel, "Meus comandos abaixo,\n \n \nAdmins:\n/ban [para banir o player],\n/vote [para fazer uma votação]\n \n \nMembros:\n/botinfo [para ver minhas configurações.")
+        await client.send_message(message.channel, "Meus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/vote (para fazer uma votação)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)")
         if message.content.lower().startswith('/botinfo'):
         await client.delete_message(message)
         embedbot = discord.Embed(
