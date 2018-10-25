@@ -109,30 +109,6 @@ async def on_message(message):
                 avatar.set_image(url=useravatar.avatar_url)
                 avatar.set_footer(text="Pedido por {}".format(message.author))
                 await client.send_message(message.channel, embed=avatar)
-        if message.content.lower().startswith("/serverinfo"):
-            horario = datetime.datetime.now().strftime("%H:%M:%S")
-        embed = discord.Embed(title="\n",
-                              description="Abaixo está as informaçoes principais do servidor!")
-        embed.set_thumbnail(url=message.server.icon_url)
-        embed.set_footer(text="{} • {}".format(message.author, horario))
-        embed.add_field(name="Nome:", value=message.server.name, inline=True)
-        embed.add_field(name="Dono:", value=message.server.owner.mention)
-        embed.add_field(name="ID:", value=message.server.id, inline=True)
-        embed.add_field(name="Cargos:", value=str(len(message.server.roles)), inline=True)
-        embed.add_field(name="Canais de texto:", value=str(
-            len([c.mention for c in message.server.channels if c.type == discord.ChannelType.text])),
-                        inline=True)
-        embed.add_field(name="Canais de voz:", value=str(
-            len([c.mention for c in message.server.channels if c.type == discord.ChannelType.voice])),
-                        inline=True)
-        embed.add_field(name="Membros:", value=str(len(message.server.members)), inline=True)
-        embed.add_field(name="Bots:",
-                        value=str(len([a for a in message.server.members if a.bot])),
-                        inline=True)
-        embed.add_field(name="Criado em:", value=message.server.created_at.strftime("%d %b %Y %H:%M"),
-                        inline=True)
-        embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
-        await client.send_message(message.channel, embed=embed)
     if message.content.lower().startswith('/ping'):
         channel = message.channel
         t1 = time.perf_counter()
@@ -164,6 +140,30 @@ async def on_message(message):
         await client.send_message(message.channel,
                                   "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
                                       message.author.mention))
+    if message.content.lower().startswith("/serverinfo"):
+            horario = datetime.datetime.now().strftime("%H:%M:%S")
+        embed = discord.Embed(title="\n",
+                              description="Abaixo está as informaçoes principais do servidor!")
+        embed.set_thumbnail(url=message.server.icon_url)
+        embed.set_footer(text="{} • {}".format(message.author, horario))
+        embed.add_field(name="Nome:", value=message.server.name, inline=True)
+        embed.add_field(name="Dono:", value=message.server.owner.mention)
+        embed.add_field(name="ID:", value=message.server.id, inline=True)
+        embed.add_field(name="Cargos:", value=str(len(message.server.roles)), inline=True)
+        embed.add_field(name="Canais de texto:", value=str(
+            len([c.mention for c in message.server.channels if c.type == discord.ChannelType.text])),
+                        inline=True)
+        embed.add_field(name="Canais de voz:", value=str(
+            len([c.mention for c in message.server.channels if c.type == discord.ChannelType.voice])),
+                        inline=True)
+        embed.add_field(name="Membros:", value=str(len(message.server.members)), inline=True)
+        embed.add_field(name="Bots:",
+                        value=str(len([a for a in message.server.members if a.bot])),
+                        inline=True)
+        embed.add_field(name="Criado em:", value=message.server.created_at.strftime("%d %b %Y %H:%M"),
+                        inline=True)
+        embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
+        await client.send_message(message.channel, embed=embed)
     if message.content.lower().startswith('/botinfo'):
         embedbot = discord.Embed(
             title='**🤖 Informações do Bot**',
