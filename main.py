@@ -103,7 +103,6 @@ async def on_message(message):
                 avatar.set_footer(text="Pedido por {}".format(message.author))
                 await client.send_message(message.channel, embed=avatar)
         if message.content.lower().startswith("/serverinfo"):
-        horario = datetime.datetime.now().strftime("%H:%M:%S")
         embed = discord.Embed(title="\n",
                               description="Abaixo está as informaçoes principais do servidor!")
         embed.set_thumbnail(url=message.server.icon_url)
