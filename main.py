@@ -63,6 +63,45 @@ async def on_member_join(member):
         
 @client.event
 async def on_message(message):
+    if message.content.lower().startswith('/avatar'):
+        xtx = message.content.split(' ')
+        if len(xtx) == 1:
+            useravatar = message.author
+            avatar = discord.Embed(
+                title="Avatar de: {}".format(useravatar.name),
+                color=0xff6e00,
+                description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+            )
+
+            avatar.set_image(url=useravatar.avatar_url)
+            avatar.set_footer(text="Pedido por {}#{}".format(useravatar.name, useravatar.discriminator))
+            await client.send_message(message.channel, embed=avatar)
+        else:
+            try:
+                useravatar = message.mentions[0]
+                avatar = discord.Embed(
+                    title="Avatar de: {}".format(useravatar.name),
+                    color=cor,
+                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+                )
+
+                avatar.set_image(url=useravatar.avatar_url)
+                avatar.set_footer(text="Pedido por {}".format(message.author))
+                await client.send_message(message.channel, embed=avatar)
+
+            except IndexError:
+                a = len(prefixo) + 7
+                uid = message.content[a:]
+                useravatar = message.server.get_member(uid)
+                avatar = discord.Embed(
+                    title="Avatar de: {}".format(useravatar.name),
+                    color=cor,
+                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+                )
+
+                avatar.set_image(url=useravatar.avatar_url)
+                avatar.set_footer(text="Pedido por {}".format(message.author))
+                await client.send_message(message.channel, embed=avatar)
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel, "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(message.author.mention))
     if message.content.lower().startswith("/serverinfo"):
@@ -187,45 +226,6 @@ async def on_message(message):
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
-     if message.content.lower().startswith('/avatar'):
-        xtx = message.content.split(' ')
-        if len(xtx) == 1:
-            useravatar = message.author
-            avatar = discord.Embed(
-                title="Avatar de: {}".format(useravatar.name),
-                color=0xff6e00,
-                description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
-            )
-
-            avatar.set_image(url=useravatar.avatar_url)
-            avatar.set_footer(text="Pedido por {}#{}".format(useravatar.name, useravatar.discriminator))
-            await client.send_message(message.channel, embed=avatar)
-        else:
-            try:
-                useravatar = message.mentions[0]
-                avatar = discord.Embed(
-                    title="Avatar de: {}".format(useravatar.name),
-                    color=cor,
-                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
-                )
-
-                avatar.set_image(url=useravatar.avatar_url)
-                avatar.set_footer(text="Pedido por {}".format(message.author))
-                await client.send_message(message.channel, embed=avatar)
-
-            except IndexError:
-                a = len(prefixo) + 7
-                uid = message.content[a:]
-                useravatar = message.server.get_member(uid)
-                avatar = discord.Embed(
-                    title="Avatar de: {}".format(useravatar.name),
-                    color=cor,
-                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
-                )
-
-                avatar.set_image(url=useravatar.avatar_url)
-                avatar.set_footer(text="Pedido por {}".format(message.author))
-                await client.send_message(message.channel, embed=avatar)
         
 
 client.run(os.getenv('TOKEN'))
