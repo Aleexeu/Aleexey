@@ -85,31 +85,6 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
-     if message.content.lower().startswith('/time'):
-        await client.send_message(message.channel, 'O bot está online à {} semana(s), {} dia(s), {} hora(s) e {} minuto(s)'.format(weeks, days, hours, minutes))
-async def uptime():
-    await client.wait_until_ready()
-    global minutes
-    global hours
-    global days
-    global weeks
-    hours = 0
-    minutes = 0
-    days = 0
-    weeks = 0
-    while not client.is_closed:
-        await asyncio.sleep(60)
-        minutes += 1
-        if minutes == 60:
-            minutes = 0
-            hours += 1
-        if hours == 24:
-            hours = 0
-            days += 1
-        if days == 7:
-            days = 0
-            weeks += 1
-client.loop.create_task(uptime())
     if message.content.lower().startswith('/avatar'):
         xtx = message.content.split(' ')
         if len(xtx) == 1:
@@ -253,6 +228,31 @@ client.loop.create_task(uptime())
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
+    if message.content.lower().startswith('/time'):
+        await client.send_message(message.channel, 'O bot está online à {} semana(s), {} dia(s), {} hora(s) e {} minuto(s)'.format(weeks, days, hours, minutes))
+async def uptime():
+    await client.wait_until_ready()
+    global minutes
+    global hours
+    global days
+    global weeks
+    hours = 0
+    minutes = 0
+    days = 0
+    weeks = 0
+    while not client.is_closed:
+        await asyncio.sleep(60)
+        minutes += 1
+        if minutes == 60:
+            minutes = 0
+            hours += 1
+        if hours == 24:
+            hours = 0
+            days += 1
+        if days == 7:
+            days = 0
+            weeks += 1
+client.loop.create_task(uptime())
         
 
 client.run(os.getenv('TOKEN'))
