@@ -228,6 +228,12 @@ async def on_message(message):
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
+
+ @client.event
+async def on_message(message):
+    if message.content.lower().startswith('/emoji'):
+        await client.send_message(message.channel,
+                                  " <a:YeetusDeletusDance:505041896289337375>\n<a:YeetusDeletusDance:504759030858907650")
     if message.content.lower().startswith('/time'):
         await client.send_message(message.channel, 'O bot está online à {} semana(s), {} dia(s), {} hora(s) e {} minuto(s)'.format(weeks, days, hours, minutes))
 
