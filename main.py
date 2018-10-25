@@ -227,7 +227,10 @@ async def on_message(message):
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
-   if message.content.lower().startswith('/userinfo'):
+        
+@client.event
+async def on_message(message):
+    if message.content.lower().startswith('/userinfo'):
         try:
             user = message.mentions[0]
             server = message.server
