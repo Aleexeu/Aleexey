@@ -85,9 +85,8 @@ async def on_member_join(member):
 
 @client.event
 async def on_message(message):
-        if message.content.lower().startswith('/time'):
+     if message.content.lower().startswith('/time'):
         await client.send_message(message.channel, 'O bot está online à {} semana(s), {} dia(s), {} hora(s) e {} minuto(s)'.format(weeks, days, hours, minutes))
-
 async def uptime():
     await client.wait_until_ready()
     global minutes
@@ -110,7 +109,6 @@ async def uptime():
         if days == 7:
             days = 0
             weeks += 1
-
 client.loop.create_task(uptime())
     if message.content.lower().startswith('/avatar'):
         xtx = message.content.split(' ')
