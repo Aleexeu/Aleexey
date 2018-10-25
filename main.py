@@ -153,7 +153,7 @@ async def on_message(message):
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel,
-                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém\n/time para você ver quanto tempo eu estou online.).).".format(
+                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém.).".format(
                                       message.author.mention))
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
@@ -228,31 +228,6 @@ async def on_message(message):
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
-    if message.content.lower().startswith('/time'):
-        await client.send_message(message.channel, 'O bot está online à {} semana(s), {} dia(s), {} hora(s) e {} minuto(s)'.format(weeks, days, hours, minutes))
-async def uptime():
-    await client.wait_until_ready()
-    global minutes
-    global hours
-    global days
-    global weeks
-    hours = 0
-    minutes = 0
-    days = 0
-    weeks = 0
-    while not client.is_closed:
-        await asyncio.sleep(60)
-        minutes += 1
-        if minutes == 60:
-            minutes = 0
-            hours += 1
-        if hours == 24:
-            hours = 0
-            days += 1
-        if days == 7:
-            days = 0
-            weeks += 1
-client.loop.create_task(uptime())
         
 
 client.run(os.getenv('TOKEN'))
