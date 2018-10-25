@@ -21,44 +21,59 @@ async def on_ready():
 async def on_ready():
     while True:
         await client.change_presence(game=discord.Game(name="o desenvolvimento de mais comandos 🔧"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Ele vai esperar 60 segundos para mudar para o proximo status
         await client.change_presence(game=discord.Game(name="e ajudando pessoas 👌"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="⭐Fui desenvolvido pelo Nitroo#4025!"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="e olhando meu criador me dando comandos!"))
-        await asyncio.sleep(10)
+        await client.change_presence(game=discord.Game(name="😸e olhando meu criador me dando comandos!"))
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="ajuda ? eu posso te ajudar /help <-"))
-        await asyncio.sleep(10)
+        await client.change_presence(game=discord.Game(name="😸ajuda ? eu posso te ajudar /help <-"))
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(
-            game=discord.Game(name="🤩 meu criador joga entre 2 jogos minecraft e braains.io!"))
-        await asyncio.sleep(10)
+            game=discord.Game(name="🎨 meu criador joga entre 2 jogos minecraft e braains.io!"))
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="🤩 meu sonho é ficar famoso."))
-        await asyncio.sleep(10)
+        await client.change_presence(game=discord.Game(name="🎨 meu sonho é ficar famoso."))
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(
             game=discord.Game(name="😸 Digite /help para você saber os comandos que você pode usar!!."))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="Meu criador está desenvolvendo música para mim.❤️️"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(
             game=discord.Game(name="💚 meu criador está online adicione ele no discord: Nitroo#4025"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(
             game=discord.Game(name="🚀 quer indicar um comando para mim ? Adicione meu criador Nitroo#4025"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="🚀 um jogo aleatorio"))
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="🚀 Vou contar ate 4."))
+        await asyncio.sleep(15)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="🚀 1"))
+        await asyncio.sleep(2)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="🚀 2"))
+        await asyncio.sleep(2)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="🚀 3"))
+        await asyncio.sleep(2)
+        # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
+        await client.change_presence(game=discord.Game(name="🚀 4"))
+        await asyncio.sleep(2)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
 
 
