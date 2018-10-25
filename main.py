@@ -103,7 +103,7 @@ async def on_message(message):
                 avatar.set_footer(text="Pedido por {}".format(message.author))
                 await client.send_message(message.channel, embed=avatar)
     if message.content.lower().startswith('/help'):
-        await client.send_message(message.channel, "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(message.author.mention))
+        await client.send_message(message.channel, "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).\n\n/userinfo (para ver as informações do player."format(message.author.mention))
     if message.content.lower().startswith("/serverinfo"):
         horario = datetime.datetime.now().strftime("%H:%M:%S")
         embed = discord.Embed(title="\n",
@@ -226,6 +226,27 @@ async def on_message(message):
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
+   if message.content.lower().startswith('/userinfo'):
+        try:
+            user = message.mentions[0]
+            server = message.server
+            embedinfo = discord.Embed(title='Informações do usuário', color=0x03c3f5, )
+            embedinfo.set_thumbnail(url=user.avatar_url)
+            embedinfo.add_field(name='Usuário:', value=user.name)
+            embedinfo.add_field(name='Apelido', value=user.nick)
+            embedinfo.add_field(name='🆔 ID:', value=user.id)
+            embedinfo.add_field(name='📅 Entrou em:', value=user.joined_at.strftime("%d %b %Y às %H:%M"))
+            embedinfo.add_field(name='📅 Server criado em:', value=server.created_at.strftime("%d %b %Y %H:%M"))
+            embedinfo.add_field(name='Jogando:', value=user.game)
+            embedinfo.add_field(name="Status:", value=user.status)
+            embedinfo.add_field(name='Cargos:', value=([role.name for role in user.roles if role.name != "@everyone"]))
+            await client.send_message(message.channel, embed=embedinfo)
+        except ImportError:
+            await client.send_message(message.channel, 'Buguei!')
+        except:
+            await client.send_message(message.channel, '❎ | Mencione um usuário válido!')
+        finally:
+            pass
         
 
 client.run(os.getenv('TOKEN'))
