@@ -81,7 +81,7 @@ async def on_message(message):
                 useravatar = message.mentions[0]
                 avatar = discord.Embed(
                     title="Avatar de: {}".format(useravatar.name),
-                    color=cor,
+                    color=0xff6e00,
                     description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
                 )
 
@@ -95,7 +95,7 @@ async def on_message(message):
                 useravatar = message.server.get_member(uid)
                 avatar = discord.Embed(
                     title="Avatar de: {}".format(useravatar.name),
-                    color=cor,
+                    color=0xff6e00,
                     description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
                 )
 
