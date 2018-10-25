@@ -138,7 +138,7 @@ async def on_message(message):
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel,
-                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
+                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
                                       message.author.mention))
     if message.content.lower().startswith("/serverinfo"):
         horario = datetime.datetime.now().strftime("%H:%M:%S")
@@ -164,29 +164,6 @@ async def on_message(message):
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
-    if message.content.lower().startswith('/botinfo'):
-        embedbot = discord.Embed(
-            title='**🤖 Informações do Bot**',
-            color=0x00a3cc,
-            description='\n'
-        )
-        embedbot.set_thumbnail(
-            url="https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fabrilsuperinteressante.files.wordpress.com%2F2016%2F03%2Fcachorro.png&imgrefurl=https%3A%2F%2Fsuper.abril.com.br%2Fideias%2Fpare-de-tratar-seu-cachorro-como-se-ele-fosse-um-lobo%2F&docid=6cnBCiMF7Dnm_M&tbnid=TQzry5QTmwCo1M%3A&vet=10ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE..i&w=1024&h=682&hl=pt-BR&gl=br&bih=657&biw=1024&q=cachorro&ved=0ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE&iact=mrc&uact=8")  # Aqui você coloca a url da foto do seu bot!
-        embedbot.add_field(name='`💮 | Nome`', value=client.user.name, inline=True)
-        embedbot.add_field(name='`◼ | Id bot`', value=client.user.id, inline=True)
-        embedbot.add_field(name='💠 | Criado em', value=client.user.created_at.strftime("%d %b %Y %H:%M"))
-        embedbot.add_field(name='📛 | Tag', value=client.user)
-        embedbot.add_field(name='‍💻 | Servidores', value=len(client.servers))
-        embedbot.add_field(name='👥 | Usuarios', value=len(list(client.get_all_members())))
-        embedbot.add_field(name='‍⚙️ | Programador', value="`Nitroo#4025`")  # Aqui você coloca seu nome/discord
-        embedbot.add_field(name='🐍 Python  | Version',
-                           value="`3.6.6`")  # Aqui você coloca a versão do python que você está utilizando!
-        embedbot.set_footer(
-            text="Comando usado por {} as {} Hrs".format(message.author, datetime.datetime.now().hour),
-            icon_url=message.author.avatar_url)
-
-        await client.send_message(message.channel, embed=embedbot)
-        await client.send_message(message.channel, embed=embe)
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
             try:
