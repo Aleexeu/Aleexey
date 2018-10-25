@@ -117,6 +117,25 @@ async def on_message(message):
         ping_embed = discord.Embed(title="🏓 Pong!", color=0x000000,
                                    description='Meu tempo de resposta é `{}ms`!'.format(round((t2 - t1) * 1000)))
         await client.send_message(message.channel, f"{message.author.mention}", embed=ping_embed)
+    if message.content.lower().startswith('/abraçar'):
+        try:
+            hugimg = ['http://media1.tenor.com/images/e58eb2794ff1a12315665c28d5bc3f5e/tenor.gif?itemid=10195705',
+                      'http://media1.tenor.com/images/949d3eb3f689fea42258a88fa171d4fc/tenor.gif?itemid=4900166',
+                      'http://media1.tenor.com/images/11889c4c994c0634cfcedc8adba9dd6c/tenor.gif?itemid=5634578',
+                      'http://media1.tenor.com/images/d7529f6003b20f3b21f1c992dffb8617/tenor.gif?itemid=4782499',
+                      'https://media1.tenor.com/images/7db5f172665f5a64c1a5ebe0fd4cfec8/tenor.gif?itemid=9200935',
+                      'https://media1.tenor.com/images/1069921ddcf38ff722125c8f65401c28/tenor.gif?itemid=11074788',
+                      'https://media1.tenor.com/images/3c83525781dc1732171d414077114bc8/tenor.gif?itemid=7830142']
+            hug = random.choice(hugimg)
+            hugemb = discord.Embed(title='Abraço :heart:',
+                                   description='**{}** Ele(a) recebeu um abraço de **{}**! Casal Fofo! :heart_eyes: '
+                                   .format(message.mentions[0].name, message.author.name), color=0xff6e00)
+            hugemb.set_image(
+                url=hug)
+            hugemb.set_footer(text="MitologyCraft BOT © 2018")
+            await client.send_message(message.channel, embed=hugemb)
+        except IndexError:
+            await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith("/serverinfo"):
         horario = datetime.datetime.now().strftime("%H:%M:%S")
     embed = discord.Embed(title="\n",
@@ -141,25 +160,6 @@ async def on_message(message):
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
-    if message.content.lower().startswith('/abraçar'):
-        try:
-            hugimg = ['http://media1.tenor.com/images/e58eb2794ff1a12315665c28d5bc3f5e/tenor.gif?itemid=10195705',
-                      'http://media1.tenor.com/images/949d3eb3f689fea42258a88fa171d4fc/tenor.gif?itemid=4900166',
-                      'http://media1.tenor.com/images/11889c4c994c0634cfcedc8adba9dd6c/tenor.gif?itemid=5634578',
-                      'http://media1.tenor.com/images/d7529f6003b20f3b21f1c992dffb8617/tenor.gif?itemid=4782499',
-                      'https://media1.tenor.com/images/7db5f172665f5a64c1a5ebe0fd4cfec8/tenor.gif?itemid=9200935',
-                      'https://media1.tenor.com/images/1069921ddcf38ff722125c8f65401c28/tenor.gif?itemid=11074788',
-                      'https://media1.tenor.com/images/3c83525781dc1732171d414077114bc8/tenor.gif?itemid=7830142']
-            hug = random.choice(hugimg)
-            hugemb = discord.Embed(title='Abraço :heart:',
-                                   description='**{}** Ele(a) recebeu um abraço de **{}**! Casal Fofo! :heart_eyes: '
-                                   .format(message.mentions[0].name, message.author.name), color=0xff6e00)
-            hugemb.set_image(
-                url=hug)
-            hugemb.set_footer(text="MitologyCraft BOT © 2018")
-            await client.send_message(message.channel, embed=hugemb)
-        except IndexError:
-            await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel,
                                   "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
