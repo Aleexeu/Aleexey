@@ -16,6 +16,7 @@ async def on_ready():
     print(client.user.id)
     print('-----PR------')
 
+
 @client.event
 async def on_ready():
     while True:
@@ -34,33 +35,39 @@ async def on_ready():
         await client.change_presence(game=discord.Game(name="ajuda ? eu posso te ajudar /help <-"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="🤩 meu criador joga entre 2 jogos minecraft e braains.io!"))
+        await client.change_presence(
+            game=discord.Game(name="🤩 meu criador joga entre 2 jogos minecraft e braains.io!"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="🤩 meu sonho é ficar famoso."))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="😸 Digite /help para você saber os comandos que você pode usar!!."))
+        await client.change_presence(
+            game=discord.Game(name="😸 Digite /help para você saber os comandos que você pode usar!!."))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="Meu criador está desenvolvendo música para mim.❤️️"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="💚 meu criador está online adicione ele no discord: Nitroo#4025"))
+        await client.change_presence(
+            game=discord.Game(name="💚 meu criador está online adicione ele no discord: Nitroo#4025"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
-        await client.change_presence(game=discord.Game(name="🚀 quer indicar um comando para mim ? Adicione meu criador Nitroo#4025"))
+        await client.change_presence(
+            game=discord.Game(name="🚀 quer indicar um comando para mim ? Adicione meu criador Nitroo#4025"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
         await client.change_presence(game=discord.Game(name="🚀 um jogo aleatorio"))
         await asyncio.sleep(10)
         # Depois que esperar 60 segundos ele n vai ter mais oq mudar de status, voltando para o primeiro e refazendo o ciclo
 
+
 @client.event
 async def on_member_join(member):
     cargo = discord.utils.get(member.server.roles, name="Membro")
     await client.add_roles(member, cargo)
-        
+
+
 @client.event
 async def on_message(message):
     if message.content.lower().startswith('/avatar'):
@@ -103,6 +110,7 @@ async def on_message(message):
                 avatar.set_footer(text="Pedido por {}".format(message.author))
                 await client.send_message(message.channel, embed=avatar)
         if message.content.lower().startswith("/serverinfo"):
+            horario = datetime.datetime.now().strftime("%H:%M:%S")
         embed = discord.Embed(title="\n",
                               description="Abaixo está as informaçoes principais do servidor!")
         embed.set_thumbnail(url=message.server.icon_url)
@@ -154,7 +162,7 @@ async def on_message(message):
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel,
-                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém)." .format(
+                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
                                       message.author.mention))
     if message.content.lower().startswith('/botinfo'):
         embedbot = discord.Embed(
@@ -162,7 +170,8 @@ async def on_message(message):
             color=0x00a3cc,
             description='\n'
         )
-        embedbot.set_thumbnail(url="https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fabrilsuperinteressante.files.wordpress.com%2F2016%2F03%2Fcachorro.png&imgrefurl=https%3A%2F%2Fsuper.abril.com.br%2Fideias%2Fpare-de-tratar-seu-cachorro-como-se-ele-fosse-um-lobo%2F&docid=6cnBCiMF7Dnm_M&tbnid=TQzry5QTmwCo1M%3A&vet=10ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE..i&w=1024&h=682&hl=pt-BR&gl=br&bih=657&biw=1024&q=cachorro&ved=0ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE&iact=mrc&uact=8")  # Aqui você coloca a url da foto do seu bot!
+        embedbot.set_thumbnail(
+            url="https://www.google.com.br/imgres?imgurl=https%3A%2F%2Fabrilsuperinteressante.files.wordpress.com%2F2016%2F03%2Fcachorro.png&imgrefurl=https%3A%2F%2Fsuper.abril.com.br%2Fideias%2Fpare-de-tratar-seu-cachorro-como-se-ele-fosse-um-lobo%2F&docid=6cnBCiMF7Dnm_M&tbnid=TQzry5QTmwCo1M%3A&vet=10ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE..i&w=1024&h=682&hl=pt-BR&gl=br&bih=657&biw=1024&q=cachorro&ved=0ahUKEwjk0d786Z3eAhVMHpAKHfLIAHQQMwiGAigBMAE&iact=mrc&uact=8")  # Aqui você coloca a url da foto do seu bot!
         embedbot.add_field(name='`💮 | Nome`', value=client.user.name, inline=True)
         embedbot.add_field(name='`◼ | Id bot`', value=client.user.id, inline=True)
         embedbot.add_field(name='💠 | Criado em', value=client.user.created_at.strftime("%d %b %Y %H:%M"))
@@ -188,7 +197,7 @@ async def on_message(message):
                     await client.delete_message(message)
                 else:
                     await client.send_message(message.channel, "Digite algo!")
-           # se o bot nao puder apagar a msg do seu comando
+            # se o bot nao puder apagar a msg do seu comando
             except discord.Forbidden:
                 msg = str(message.content).replace("/say ", "")
                 await client.send_message(message.channel, msg)
@@ -227,6 +236,5 @@ async def on_message(message):
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
-        
 
 client.run(os.getenv('TOKEN'))
