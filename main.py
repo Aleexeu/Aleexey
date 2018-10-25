@@ -138,7 +138,7 @@ async def on_message(message):
             await client.send_message(message.channel, 'Você precisa mencionar um usuário específico para abraçar!')
     if message.content.lower().startswith('/help'):
         await client.send_message(message.channel,
-                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/botinfo (para ver minhas configurações.)\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
+                                  "{} <a:YeetusDeletusDance:504759030858907650>,\nMeus comandos abaixo,\n \n \nAdmins:\n/ban (para banir o player),\n/say (para escrever algo.)\n \n \nMembros:\n/help (para você ver meus comandos)\n/juntarnomes (para juntar um nick com o outro)!\n/abraçar (abraçar sua amiga ou amigo <3).\n/ping (para você ver meu tempo de resposta.).\n/serverinfo (para você ver as configuraçoes do server discord.).\n/avatar (para ver o seu avatar ou o avatar de alguém).".format(
                                       message.author.mention))
     if message.content.lower().startswith('/say'):
         if message.author.server_permissions.administrator:
