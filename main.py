@@ -187,6 +187,46 @@ async def on_message(message):
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
         embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
+     prefixo = "/"
+    if message.content.startswith(prefixo + "avatar"):
+        xtx = message.content.split(' ')
+        if len(xtx) == 1:
+            useravatar = message.author
+            avatar = discord.Embed(
+                title="Avatar de: {}".format(useravatar.name),
+                color=0xff6e00,
+                description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+            )
+
+            avatar.set_image(url=useravatar.avatar_url)
+            avatar.set_footer(text="Pedido por {}#{}".format(useravatar.name, useravatar.discriminator))
+            await client.send_message(message.channel, embed=avatar)
+        else:
+            try:
+                useravatar = message.mentions[0]
+                avatar = discord.Embed(
+                    title="Avatar de: {}".format(useravatar.name),
+                    color=cor,
+                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+                )
+
+                avatar.set_image(url=useravatar.avatar_url)
+                avatar.set_footer(text="Pedido por {}".format(message.author))
+                await client.send_message(message.channel, embed=avatar)
+
+            except IndexError:
+                a = len(prefixo) + 7
+                uid = message.content[a:]
+                useravatar = message.server.get_member(uid)
+                avatar = discord.Embed(
+                    title="Avatar de: {}".format(useravatar.name),
+                    color=cor,
+                    description="[Clique aqui](" + useravatar.avatar_url + ") para baixar a imagem"
+                )
+
+                avatar.set_image(url=useravatar.avatar_url)
+                avatar.set_footer(text="Pedido por {}".format(message.author))
+                await client.send_message(message.channel, embed=avatar)
         
 
 client.run(os.getenv('TOKEN'))
