@@ -17,15 +17,6 @@ async def on_ready():
     print('-----PR------')
 
 @client.event
-async def on_member_join(member):
-    if member.server.id == '502572122015662092':
-        welcomemb = discord.Embed(color=0xF2EA00, title="Seja bem-vindo ao Server! Por favor leia as regras!")
-        canal = client.get_channel("502580899657809944")
-        welcomemb.set_image(url="https://discordemoji.com/assets/emoji/blobjoining.gif")
-        welcomemb.set_footer(icon_url=member.avatar_url, text=member.name)
-        await client.send_message(canal, embed=welcomemb)
-
-@client.event
 async def on_ready():
     while True:
         await client.change_presence(game=discord.Game(name="o desenvolvimento de mais comandos 🔧"))
