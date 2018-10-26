@@ -206,23 +206,25 @@ async def on_message(message):
         except IndexError:
             await client.send_message(message.channel,
                                       "{} Você não mencionou dois usuarios".format(message.author.mention))
-    if message.content.startswith("/ban"):
+        if message.content.startswith("/ban"):
         if not message.author.server_permissions.ban_members:
             return await client.send_message(message.channel,
-                                             "<a:negado:505191975725694996> Você não tem permissão para executar esse comando bobinho(a)!")
+                                             ":negado: Você não tem permissão para executar esse comando bobinho(a)!")
         try:
             user = message.mentions[0]
+            await client.send_message(message.channel, 'Digite o motivo abaixo:')
+            motivo = await client.wait_for_message(author=message.author)
             banido = await client.send_message(message.channel,
-                                               "O usuario(a) <@{}> foi banido com sucesso do servidor.".format(user.id))
+                                               f"O usuário banido: <@{user.id}> \nMotivo: {motivo.content}")
             await client.ban(user, delete_message_days=1)
         except IndexError:
-            await client.send_message(message.channel, "Você deve especificar um usuario para banir!")
+            await client.send_message(message.channel, "{}\n \n<a:UltraThinkFixed:505418060052824064> Como usar: /ban\n \n:bookmark_tabs: Exemplos:\n/ban @usuário\n \n:twisted_rightwards_arrows: Alternativas:\n:x:\n:satellite_orbital:Administração.:rocket:" .format(message.author.mention))
         except discord.Forbidden:
             await client.send_message(message.channel,
                                       "Não posso banir o usuário, o cargo dele está acima de mim ou não tenho permissão para banir membros!")
         canal = client.get_channel('504732378846199820')
         embed = discord.Embed(colour=0xFFA500, description="+ 1 banido")
-        embed.add_field(name='`👤 | Úsuario banido:`', value=banido.content)
+        embed.add_field(name='`👤 | usuário banido:`', value=banido.content)
         await client.send_message(canal, embed=embed)
     if message.content.lower().startswith("/serverinfo"):
         horario = datetime.datetime.now().strftime("%H:%M:%S")
