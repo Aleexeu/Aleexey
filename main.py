@@ -15,16 +15,6 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('-----PR------')
-    
-@client.event
-async def on_member_join(member):
-    if member.server.id == '502572122015662092':
-        welcomemb = discord.Embed(color=0xF2EA00, title="Seja bem-vindo ao Server! Por favor leia as regras!")
-        canal = client.get_channel("502580899657809944")
-        welcomemb.set_image(url="https://discordemoji.com/assets/emoji/blobjoining.gif")
-        welcomemb.set_footer(icon_url=member.avatar_url, text=member.name)
-        await client.send_message(canal, embed=welcomemb)
-
 
 @client.event
 async def on_ready():
@@ -258,6 +248,15 @@ async def on_message(message):
                     inline=True)
     embed.add_field(name="Região:", value=str(message.server.region).title(), inline=True)
     await client.send_message(message.channel, embed=embed)
+    
+@client.event
+async def on_member_join(member):
+    if member.server.id == '502572122015662092':
+        welcomemb = discord.Embed(color=0xF2EA00, title="Seja bem-vindo ao Server! Por favor leia as regras!")
+        canal = client.get_channel("502580899657809944")
+        welcomemb.set_image(url="https://discordemoji.com/assets/emoji/blobjoining.gif")
+        welcomemb.set_footer(icon_url=member.avatar_url, text=member.name)
+        await client.send_message(canal, embed=welcomemb)
         
 
 client.run(os.getenv('TOKEN'))
