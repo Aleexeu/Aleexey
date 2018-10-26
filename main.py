@@ -206,7 +206,7 @@ async def on_message(message):
         except IndexError:
             await client.send_message(message.channel,
                                       "{} Você não mencionou dois usuarios".format(message.author.mention))
-        if message.content.startswith("/ban"):
+     if message.content.startswith("/ban"):
         if not message.author.server_permissions.ban_members:
             return await client.send_message(message.channel,
                                              ":negado: Você não tem permissão para executar esse comando bobinho(a)!")
