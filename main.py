@@ -191,7 +191,7 @@ async def on_message(message):
                 msg = str(message.content).replace("/say ", "")
                 await client.send_message(message.channel, msg)
         else:
-            await client.send_message(message.channel, "Sem permissão!")
+            await client.send_message(message.channel, "<a:negado:505191975725694996> Sem permissão!")
     if message.content.lower().startswith('/juntarnomes'):
         try:
             cont = message.mentions[0].name
@@ -210,7 +210,7 @@ async def on_message(message):
     if message.content.startswith("/ban"):
         if not message.author.server_permissions.ban_members:
             return await client.send_message(message.channel,
-                                             "Você não tem permissão para executar esse comando bobinho(a)!")
+                                             "<a:negado:505191975725694996> Você não tem permissão para executar esse comando bobinho(a)!")
         try:
             user = message.mentions[0]
             banido = await client.send_message(message.channel,
