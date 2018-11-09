@@ -4,8 +4,8 @@ exports.run = (bot,message,args) => {
     let embed = new Discord.RichEmbed()
 
     .setTitle("Não encontrado!")
-    .setColor("RANDOM")
-    .setDescription(`Infelizmente não encontrei o comando, digite !help para saber os comandos!`)
+    .setColor("d! ?")
+    .setDescription(`b! é o k7, o bagulho é d!help`)
 
     message.channel.send(embed);
 }
