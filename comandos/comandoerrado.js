@@ -5,7 +5,7 @@ exports.run = (bot,message,args) => {
 
     .setTitle("Não encontrado!")
     .setColor("d! ?")
-    .setDescription(`b! é o k7, o bagulho é d!help`)
+    .setDescription(`Infelizmente não entendi o comando!\n Digite: d!help`)
 
     message.channel.send(embed);
 }
