@@ -17,7 +17,7 @@ bot.on('guildMemberAdd', member => {
         .setTitle("** <a:2795_BongoCatHyper:508281071973171210> bem-vindo**")
         .addField('Bem vindo(a)!', `Bem vindo(a) ${member} Ao servidor inscrito lindo!`)
         .setTimestamp()
-    bot.channels.get('508052627704250370').send({embed})
+    bot.channels.get('517158113128874007').send({embed})
 
 });
 
@@ -29,7 +29,7 @@ bot.on("guildMemberRemove", async member => {
         .setThumbnail(avatar)
         .addField('Saida!', `Um inscritoo saiu, o nick dele é ${member}, espero que ele volte.`)
         .setTimestamp()
-    bot.channels.get('508052627704250370').send({embed})
+    bot.channels.get('517158113128874007').send({embed})
 
 });
 
