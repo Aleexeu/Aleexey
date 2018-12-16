@@ -14,7 +14,7 @@ bot.on('guildMemberAdd', member => {
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(avatar)
-        .setTitle("**bem-vindo ${member.tag}**")
+        .setTitle("**bem-vindo**")
         .addField('<a:9756_AppJedi:523862164587675657>  Bem vindo(a)!', `Bem vindo(a) <@${member.id}> Ao servidor inscrito lindo!`)
         .setFooter(`ID so usuário ${member.id}`, bot.user.displayAvatarURL)
         .setTimestamp()
