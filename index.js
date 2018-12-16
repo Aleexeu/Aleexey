@@ -14,8 +14,9 @@ bot.on('guildMemberAdd', member => {
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(avatar)
-        .setTitle("** <a:2795_BongoCatHyper:508281071973171210> bem-vindo**")
+        .setTitle("** <a:9756_AppJedi:523862164587675657> bem-vindo ${member.tag}**")
         .addField('Bem vindo(a)!', `Bem vindo(a) ${member} Ao servidor inscrito lindo!`)
+        .setFooter(`ID so usuário ${member.id}`, bot.user.displayAvatarURL)
         .setTimestamp()
     bot.channels.get('517158113128874007').send({embed})
 
@@ -27,7 +28,8 @@ bot.on("guildMemberRemove", async member => {
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(avatar)
-        .addField('Saida!', `Um inscritoo saiu, o nick dele é ${member}, espero que ele volte.`)
+        .addField('Saida!', `Infelizmente um inscrito saiu, mais um dia ele volta, nick dele é <${member.id}>`)
+        .setFooter(`ID so usuário ${member.id}`, bot.user.displayAvatarURL)
         .setTimestamp()
     bot.channels.get('517158113128874007').send({embed})
 
