@@ -15,7 +15,7 @@ bot.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(avatar)
         .setTitle("**bem-vindo**")
-        .addField('<a:9756_AppJedi:523862164587675657>  Bem vindo(a)!', `Bem vindo(a) <@${member.id}> Ao servidor inscrito lindo!`)
+        .addField(`<a:9756_AppJedi:523862164587675657>  **Bem vindo(a)!**\nBem vindo(a) ${member} Ao servidor membro lindo!`)
         .setFooter(`ID so usuário ${member.id}`, bot.user.displayAvatarURL)
         .setTimestamp()
     bot.channels.get('517158113128874007').send({embed})
